@@ -1,0 +1,400 @@
+/*
+Theme Name: TechSurfex
+Theme URI: https://techsurfex.com
+Author: TechSurfex Team
+Description: Professional tech & gadget news portal with dark/light mode, mega menu, and SEO optimization
+Version: 1.0.0
+License: GPL v2 or later
+Text Domain: techsurfex
+*/
+
+/* CSS Variables - Light Mode (Default) */
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a2e;
+    --text-secondary: #4a5568;
+    --accent: #0d6efd;
+    --accent-hover: #0b5ed7;
+    --border: #e9ecef;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    --header-bg: #ffffff;
+    --footer-bg: #1a1a2e;
+    --footer-text: #ffffff;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --text-primary: #ffffff;
+    --text-secondary: #a0aec0;
+    --border: #2d3748;
+    --card-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    --header-bg: #0f0f1a;
+    --footer-bg: #0a0a0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Sticky Navigation */
+.site-header {
+    background: var(--header-bg);
+    box-shadow: var(--card-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    background: rgba(var(--header-bg-rgb, 255,255,255), 0.95);
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    flex-wrap: wrap;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.logo a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* Navigation Menu */
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    position: relative;
+}
+
+.main-nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: var(--accent);
+}
+
+/* Mega Menu */
+.mega-menu {
+    position: static;
+}
+
+.mega-menu .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-primary);
+    box-shadow: var(--card-shadow);
+    padding: 30px;
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    border-top: 3px solid var(--accent);
+    z-index: 1001;
+}
+
+.mega-menu:hover .sub-menu {
+    display: grid;
+}
+
+.mega-menu .sub-menu li {
+    margin-bottom: 10px;
+}
+
+.mega-menu .sub-menu a {
+    display: block;
+    padding: 5px 0;
+}
+
+/* Dark Mode Toggle */
+.dark-toggle {
+    background: var(--bg-secondary);
+    border: none;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 25px;
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.dark-toggle:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Breaking News Slider */
+.breaking-slider {
+    margin: 30px 0;
+    position: relative;
+}
+
+.slider-container {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.swiper-slide {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 40px;
+}
+
+.slide-category {
+    background: var(--accent);
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.slide-title {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.slide-title a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Post Grid */
+.section-title {
+    font-size: 28px;
+    margin: 40px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--accent);
+    display: inline-block;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.post-card {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: var(--card-shadow);
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.post-thumbnail img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 20px;
+}
+
+.post-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.post-meta {
+    color: var(--text-secondary);
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.post-excerpt {
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Sidebar */
+.sidebar {
+    position: sticky;
+    top: 100px;
+}
+
+.widget {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent);
+    padding-left: 12px;
+}
+
+/* Newsletter */
+.newsletter-section {
+    background: var(--accent);
+    padding: 60px 0;
+    margin: 50px 0;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.newsletter-form input {
+    padding: 15px 20px;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    font-size: 16px;
+}
+
+.newsletter-form button {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Footer */
+.site-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 50px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* Ad Slots */
+.ad-slot {
+    text-align: center;
+    margin: 20px 0;
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .slide-title {
+        font-size: 24px;
+    }
+    
+    .slider-container .swiper-slide {
+        height: 350px;
+    }
+    
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .mega-menu .sub-menu {
+        grid-template-columns: 1fr;
+        position: static;
+        display: none;
+    }
+}
+
+/* Lazy Loading */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+  }
